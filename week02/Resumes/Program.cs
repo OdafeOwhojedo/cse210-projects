@@ -14,5 +14,16 @@ class Program
         Console.WriteLine("Enter the end year.");
         job1._endYear = int.Parse(Console.ReadLine());
         job1.DisplayJobInfor();
+        Job job2 = new Job();
+        Console.WriteLine("What is your job title?");
+        job2._jobTitle = Console.ReadLine();
+        Console.WriteLine("What is your company name?");
+        job2._companyName = Console.ReadLine();
+        Console.WriteLine("Enter the start year.");
+        job2._startYear = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter the end year.");
+        job2._endYear = int.Parse(Console.ReadLine());
+        job2.DisplayJobInfor();
+
     }
 }
