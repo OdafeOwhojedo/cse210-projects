@@ -4,22 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-       DisplayMessage(); 
+       DisplayWelcome(); 
        string requestedName = PromptUserName();
-       Console.WriteLine($"The name is:{requestedName}");
        int favoriteNumber = PromptUserNumber();
-       Console.WriteLine($"Your favorite number is: {favoriteNumber}");
-       Console.Write("Enter a number to be squared  ");
-       int number = int.Parse(Console.ReadLine());
-       int userSquaredNumber = SquareNumber(number);
-       Console.WriteLine($"The square of {number} is {userSquaredNumber}");
-       Console.Write("What is your name?  ");
-       string enteredName = Console.ReadLine();
-       Console.Write("What is your favorite squared number? ");
-       int enteredSquared = int.Parse(Console.ReadLine());
-       DisplayResult(enteredName, enteredSquared);
+       int userSquaredNumber = SquareNumber(favoriteNumber);
+       DisplayResult(requestedName, userSquaredNumber);
     }
-    static void DisplayMessage()
+    static void DisplayWelcome()
     {
         Console.WriteLine("Welcome to the Program!");
     }
@@ -42,7 +33,7 @@ class Program
     } 
     static void DisplayResult(string name, int squareOfNumber)
     {
-        Console.Write($"Your name is {name} and your favorite squared is {squareOfNumber}");
+        Console.Write($" {name}, the square of your favorite number is {squareOfNumber}");
     }        
     
 }

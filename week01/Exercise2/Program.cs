@@ -31,7 +31,7 @@ class Program
 
         if (userGrade >= 70)
         {
-            Console.WriteLine($"Congratulations! your grade is {letter}, you passed");
+            Console.WriteLine($"Congratulations! your grade is {letter}, you passed!");
 
         }
         else

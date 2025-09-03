@@ -18,11 +18,11 @@ class Program
        {
         total += number;
        }
-       Console.WriteLine($"The total is: {total}");
+       Console.WriteLine($"The total sum of all the numbers entered is: {total}");
        float average;
        int numberCounted = numbers.Count;
        average = total/numberCounted;
-       Console.WriteLine($"The average is: {average}");
+       Console.WriteLine($"The average of all the numbers entered is: {average}");
        int highestNumber = 0;
        foreach(int maxNumber in numbers)
        {
