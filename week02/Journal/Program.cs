@@ -46,10 +46,10 @@ class Program
                   journal.LoadFromFile(nameOfFile);
                    break;
                 case "5":
-                    Console.WriteLine("Eciting Journal. Goodbye!");
+                    Console.WriteLine("Exiting Journal. Goodbye!");
                     return;
                 default:
-                   Console.WriteLine("Invalid option, please try again");
+                   Console.WriteLine("You entered an invalid option, please try again.");
                     break;
             }
 
