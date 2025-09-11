@@ -40,6 +40,7 @@ public class Journal
                         writer.WriteLine( fileEntry._date);
                         writer.WriteLine(fileEntry._promptText);
                         writer.WriteLine(fileEntry._entryText);
+                        writer.WriteLine(fileEntry._place);
                         writer.WriteLine(fileEntry._motivationalQuote);
         
                     }
@@ -65,8 +66,9 @@ public class Journal
                         string date = fileReader.ReadLine();
                         string prompt = fileReader.ReadLine();
                         string response = fileReader.ReadLine();
+                        string placeOfEntry = fileReader.ReadLine();
                         string quote = fileReader.ReadLine();
-                        _entries.Add(new Entry(date, prompt, response, quote));
+                        _entries.Add(new Entry(date, prompt, response, placeOfEntry, quote));
                     }
                 }
                 Console.WriteLine($"Journal successfully loaded from {file}");
