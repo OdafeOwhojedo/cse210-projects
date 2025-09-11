@@ -9,6 +9,7 @@ class Program
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToString();
         string nextPrompt;
+        string propheticQuote;
         string nameOfFile;
         Console.WriteLine("----------Welcome to your electronic Journal----------");
         while (true)
@@ -29,7 +30,9 @@ class Program
                   Console.WriteLine(nextPrompt);
                   Console.Write("Enter your response: ");
                   string userResponse = Console.ReadLine();
-                  Entry newEntry = new Entry(dateText, nextPrompt, userResponse);
+                  Console.WriteLine("Enter a prophetic quote or invitation from a general authority that you memorized today");
+                  propheticQuote = Console.ReadLine();
+                  Entry newEntry = new Entry(dateText, nextPrompt, userResponse, propheticQuote);
                   journal.AddEntry(newEntry);
                   break;
                 case "2":
@@ -41,12 +44,12 @@ class Program
                   journal.SaveToFile(nameOfFile);
                   break;
                 case "4":
-                  Console.WriteLine("Enter the name of the file you want to load your journal enteries from");
+                  Console.WriteLine("Enter the name of the file you want to load your journal entries from");
                   nameOfFile = Console.ReadLine();
                   journal.LoadFromFile(nameOfFile);
                    break;
                 case "5":
-                    Console.WriteLine("Exiting Journal. Goodbye!");
+                    Console.WriteLine("Exiting your Journal. Continuing writing. Goodbye!");
                     return;
                 default:
                    Console.WriteLine("You entered an invalid option, please try again.");

@@ -11,8 +11,8 @@ public class PromptGenerator
     public string GetRandomPrompt()
     {
         Random randomPrompt = new Random();//Create a new random class object.
-        int promptPosition = randomPrompt.Next(0, _prompts.Count);//Randomly pick an interger value that will indicate the position of a prompt in the prompt list.
-        string latestPrompt = _prompts[promptPosition];//Pick a prompt by its interger position and assigned it to the string variable.
+        int promptPosition = randomPrompt.Next(0, _prompts.Count);//Randomly pick an integer value that will indicate the position of a prompt in the prompt list.
+        string latestPrompt = _prompts[promptPosition];//Pick a prompt by its integer position and assigned it to the string variable.
         return latestPrompt;
     }
 }

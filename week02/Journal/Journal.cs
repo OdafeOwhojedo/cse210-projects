@@ -21,9 +21,9 @@ public class Journal
             {
                 Console.WriteLine("There are no entries to display");
             }
-            foreach (Entry myEntry in _entries)//Create a variable myEntry of the Entry type.
+            foreach (Entry userEntry in _entries)//Create a variable userEntry of the Entry type.
             {
-                myEntry.Display();
+                userEntry.Display();
             }
             
         }
@@ -35,15 +35,16 @@ public class Journal
                 using (StreamWriter writer = new StreamWriter(file, true))
                 {
             
-                    foreach (Entry entry in _entries)
+                    foreach (Entry fileEntry in _entries)
                     {
-                        writer.WriteLine( entry._date);
-                        writer.WriteLine(entry._promptText);
-                        writer.WriteLine(entry._entryText);
+                        writer.WriteLine( fileEntry._date);
+                        writer.WriteLine(fileEntry._promptText);
+                        writer.WriteLine(fileEntry._entryText);
+                        writer.WriteLine(fileEntry._motivationalQuote);
         
                     }
                 }
-                Console.WriteLine($"Your enteries have been  saved to the file named {file}");
+                Console.WriteLine($"Your entries have been  saved to the file named {file}");
             }
             catch (System.Exception)
             {
@@ -57,14 +58,15 @@ public class Journal
 
             try
             {
-                using (StreamReader newReader = new StreamReader(file))
+                using (StreamReader fileReader = new StreamReader(file))
                 {
-                    while (!newReader.EndOfStream)
+                    while (!fileReader.EndOfStream)
                     {
-                        string date = newReader.ReadLine();
-                        string prompt = newReader.ReadLine();
-                        string response = newReader.ReadLine();
-                        _entries.Add(new Entry(date, prompt, response));
+                        string date = fileReader.ReadLine();
+                        string prompt = fileReader.ReadLine();
+                        string response = fileReader.ReadLine();
+                        string quote = fileReader.ReadLine();
+                        _entries.Add(new Entry(date, prompt, response, quote));
                     }
                 }
                 Console.WriteLine($"Journal successfully loaded from {file}");
