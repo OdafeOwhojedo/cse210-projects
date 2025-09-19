@@ -1,38 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 //Represents a customer's order
 public class Order
 {
-    private int _orderID;
-    private Customer _customer;
-    private DateTime _orderDate;
-    private List<OrderItem> _items;
+    public string OrderId;
+    public DateTime OrderDate;
+    public Customer Customer;
+    public List<Product> Products;
+    public decimal TotalAmount;
 
-    public Order(int orderID, Customer myCustomer)
-    [
-        _orderID = orderID;
-        _customer = myCustomer;
-        _orderDate = DateTime.Now;
-        _items = new List<OrderItem>();
+    public Order(string orderId, Customer customer)
+    {
+       OrderId = orderId;
+       OrderDate = DateTime.Now;
+       Customer = customer;
+       Products = new List<Product>();
+       CalculateTotalAmount();//Initialize the total
+    }
 
-        public void AddItem(Product product, int quantity)
-        {
-            _items.Add(new OrderItem(product, quantity));
-        }
+     public void AddProduct(Product product)
+     {
+        Products.Add(product);
+        CalculateTotalAmount();
+      }
 
-        public float GetTotalOrderPrice()
-        {
-            return _items.Sum(item => item.totalPrice);
-        }
+    public void RemoveProduct(Product product)
+    {
+         Products.Remove(product);
+         CalculateTotalAmount();
+    }
 
-        public override string ToString()
-        {
-            string orderDetails = $"Order ID: {_orderID}\nCustomer: {_customer._firstName} {_customer._lastName}\nOrder Date: {_orderDate.ToShortDateString()}\nItems: \n";
-            foreach (var item in _items)
-            {
-                orderDetails += $"  - {item}\n";
-            }
-            orderDetails += $"Total Price: {GetTotalOrderPrice():C}";
-            return orderDetails;
-        }
+     public void CalculateTotalAmount()
+     {
+         TotalAmount = Products.Sum(p => p.Price);
+     }
 
-    ]
+     public override string ToString()
+     {
+         return $"Order ID: {OrderId}, Date: {OrderDate.ToShortDateString()}, Customer: {Customer.FirstName} {Customer.LastName}, Total: {TotalAmount:C}";
+     }
+
 }

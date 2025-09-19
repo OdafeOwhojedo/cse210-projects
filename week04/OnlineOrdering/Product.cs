@@ -1,19 +1,21 @@
 //Represents a product available for purchase
 public class Product
 {
-    private int _productID;
-    private string _name;
-    private float _price;
+    public string ProductId;
+    public string Name;
+    public decimal Price;
+    public string Description;
 
-    public Product(int productID, string name, float price)
+    public Product(string productId, string name, decimal price, string description)
     {
-        _productID = productID;
-        _name = name;
-        _price = price;
+        ProductId = productId;
+        Name = name;
+        Price = price;
+        Description = description;
     }
 
     public override string ToString()
     {
-        return $"ID:  {_productID}, Name: {_name}, Price: {_price:C}";
+        return $"ID: {ProductId}, Name:{Name}, Price: {Price:C}";
     }
 }

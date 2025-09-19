@@ -1,21 +1,33 @@
+using System;
+using System.Collections.Generic;
 //Represents a customer placing an order
 public class Customer
 {
-    private int _customerID;
-    private string _firstName;
-    private string _lastName;
-    private Address _shippingAddress;
+    public string CustomerId;
+    public string FirstName;
+    public string LastName;
+    public string Email;
+    public Address ShippingAddress;
+    public List<Order> Orders;
 
-    public Customer(int customerID, string firstName, string lastName, Address shippingAddress)
+    public Customer(string customerId, string firstName, string lastName, string email, Address shippingAddress)
     {
-        _customerID = customerID;
-        _firstName = firstName;
-        _lastName = lastName;
-        _shippingAddress = shippingAddress;
+        CustomerId = customerId;
+        FirstName = firstName;
+        LastName = lastName;
+        Email = email;
+        ShippingAddress = shippingAddress;
+        Orders = new List<Order>();
+    }
+
+    public void AddOrder(Order order)
+    {
+        Orders.Add(order);
     }
 
     public override string ToString()
     {
-        return $"Customer ID: {_customerID}, Name: {_firstName} {_lastName}, Shipping Address: {_shippingAddress}";
+        return $"Customer ID: {CustomerId}, Name: {FirstName} {LastName}, Email: {Email}";
+
     }
 }

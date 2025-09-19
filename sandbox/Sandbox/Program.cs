@@ -5,16 +5,18 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World! This is the Sandbox Project.");
-        float radius = 0;
-        double area;
-        double perimeter;
-        Console.Write("Enter the value of the radius of the circle:    ");
-        radius = float.Parse(Console.ReadLine());
-        Circle myCircle = new Circle(radius);
-        area = myCircle.AreaOfCircle();
-        perimeter = myCircle.PerimeterOfCircle();
-        Console.WriteLine($"The Area of the circle is:  {area}");
-        Console.WriteLine($"The Perimeter of the Circle is:   {perimeter}");
+        BankAccount myAccount = new BankAccount(1000m);
+
+        // Accessing balance through the public Balance property
+        Console.WriteLine($"Current balance: {myAccount.Balance:C}");
+
+        myAccount.Deposit(200m);
+        myAccount.Withdraw(50m);
+
+        // Attempting to directly modify the private _balance field would result in a compile-time error
+        // myAccount._balance = 5000m; // This line would not compile
+
+        Console.WriteLine($"Final balance: {myAccount.Balance:C}");
 
 
     }

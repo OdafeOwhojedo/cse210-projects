@@ -4,23 +4,24 @@ using System.Linq;
 //Represents a physical address
 public class Address
 {
-    private string _street;
-    private string _city;
-    private string _state;
-    private string _postalCode;
-    private string _country;
+    public string Street;
+    public string City;
+    public string State;
+    public string ZipCode;
+    public string Country;
 
-    public Address(string street, string city, string state, string postalCode, string country)
+    public Address(string street, string city, string state, string zipCode, string country)
     {
-        _street = street;
-        _city = city;
-        _state = state;
-        _postalCode = postalCode;
-        _country = country;
+        Street = street;
+        City = city;
+        State = state;
+        ZipCode = zipCode;
+        Country = country;
     }
 
     public override string ToString()
     {
-        return $"{_street}, {_city}, {_state}, {_postalCode}, {_country}";
+        return $"{Street}, {City}, {State} {ZipCode} {Country}";
     }
+
 }
