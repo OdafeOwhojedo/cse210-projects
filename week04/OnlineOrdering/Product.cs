@@ -1,21 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 //Represents a product available for purchase
 public class Product
 {
-    public string ProductId;
-    public string Name;
-    public decimal Price;
-    public string Description;
+    private string _productId;
+    private string _productName;
+    private decimal _productPrice;
+    private int _productQuantity;
 
-    public Product(string productId, string name, decimal price, string description)
+    public string ProductID
     {
-        ProductId = productId;
-        Name = name;
-        Price = price;
-        Description = description;
+        get { return _productId; }
+        set { _productId = value; }
     }
 
-    public override string ToString()
+    public string ProductName
     {
-        return $"ID: {ProductId}, Name:{Name}, Price: {Price:C}";
+        get { return _productName; }
+        set { _productName = value; }
     }
+
+    public decimal ProductPrice
+    {
+        get { return _productPrice; }
+        set { _productPrice = value; }
+    }
+
+    public int ProductQuantity
+    {
+        get { return _productQuantity; }
+        set { _productQuantity = value; }
+    }
+
+    public Product(string productId, string productName, decimal productPrice, int productQuantity)
+    {
+        _productId = productId;
+        _productName = productName;
+        _productPrice = productPrice;
+        _productQuantity = productQuantity;
+    }
+
+    public decimal CalculateCost()
+    {
+       
+        decimal totalCost = _productPrice * _productQuantity;
+        return totalCost;
+    }
+
+    
 }

@@ -3,31 +3,41 @@ using System.Collections.Generic;
 //Represents a customer placing an order
 public class Customer
 {
-    public string CustomerId;
-    public string FirstName;
-    public string LastName;
-    public string Email;
-    public Address ShippingAddress;
-    public List<Order> Orders;
-
-    public Customer(string customerId, string firstName, string lastName, string email, Address shippingAddress)
+    private string _firstName;
+    private string _lastName;
+    private Address _shippingAddress;
+    
+    public string FirstName
     {
-        CustomerId = customerId;
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email;
-        ShippingAddress = shippingAddress;
-        Orders = new List<Order>();
+        get { return _firstName; }
+        set { _firstName = value; }
     }
 
-    public void AddOrder(Order order)
+    public string LastName
     {
-        Orders.Add(order);
+        get { return _lastName; }
+        set { _lastName = value; }
     }
 
-    public override string ToString()
+    public Customer(string firstName, string lastName, Address shippingAddress)
     {
-        return $"Customer ID: {CustomerId}, Name: {FirstName} {LastName}, Email: {Email}";
-
+        _firstName = firstName;
+        _lastName = lastName;
+        _shippingAddress = shippingAddress;
+        
     }
+
+    public bool AddressCountry()
+    {
+        bool countryUSA;
+        countryUSA = _shippingAddress.CountryStatus();
+        return countryUSA;
+    }
+    public string DisplayCustomerAddress()
+    {
+        string shippingInfo = _shippingAddress.DisplayAddress();
+        return shippingInfo;
+        
+    }
+   
 }

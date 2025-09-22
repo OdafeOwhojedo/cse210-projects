@@ -4,41 +4,60 @@ using System.Linq;
 //Represents a customer's order
 public class Order
 {
-    public string OrderId;
-    public DateTime OrderDate;
-    public Customer Customer;
-    public List<Product> Products;
-    public decimal TotalAmount;
+    private Customer _customer;
+    private List<Product> _products;
+    private decimal _shippingCost;
+    private decimal _grandTotalAmount;
 
-    public Order(string orderId, Customer customer)
+    public Order( Customer customer, Product product)
     {
-       OrderId = orderId;
-       OrderDate = DateTime.Now;
-       Customer = customer;
-       Products = new List<Product>();
-       CalculateTotalAmount();//Initialize the total
+        _customer = customer;
+        _products = new List<Product>();
+
     }
 
-     public void AddProduct(Product product)
-     {
-        Products.Add(product);
-        CalculateTotalAmount();
-      }
-
-    public void RemoveProduct(Product product)
+    public void AddProduct(Product product)
     {
-         Products.Remove(product);
-         CalculateTotalAmount();
+        _products.Add(product);
+        
     }
 
-     public void CalculateTotalAmount()
-     {
-         TotalAmount = Products.Sum(p => p.Price);
-     }
 
-     public override string ToString()
-     {
-         return $"Order ID: {OrderId}, Date: {OrderDate.ToShortDateString()}, Customer: {Customer.FirstName} {Customer.LastName}, Total: {TotalAmount:C}";
-     }
+    public void CalculateTotalAmount()
+    {
+        bool costOfShipping = _customer.AddressCountry();
+        if (costOfShipping == true)
+        {
+            _shippingCost = 5;
+            _grandTotalAmount = _products.Sum(product => product.CalculateCost() ) + _shippingCost;
+            
+           
+        }
+        else
+        {
+            _shippingCost = 35;
+            _grandTotalAmount = _products.Sum(product => product.CalculateCost()) + _shippingCost;
+            
+        }
+            
+    }
+
+    public  void DisplayPackingLabel()
+    {
+        Console.WriteLine("------------Packing Label Information------------");
+        foreach (var item in _products)
+        {
+            Console.WriteLine($"Name of Product: {item.ProductName}\n Product ID: {item.ProductID} ");
+
+        }
+        
+    }
+
+    public void DisplayShippingLabel()
+    {
+        Console.WriteLine("-------------Shipping Label-------------");
+        Console.WriteLine($"Name of Customer: {_customer.FirstName}  {_customer.LastName} \nAddress of Customer: {_customer.DisplayCustomerAddress()}");
+        Console.WriteLine($"Total Cost: {_grandTotalAmount}");
+    }
 
 }
