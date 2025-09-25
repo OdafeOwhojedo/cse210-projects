@@ -47,20 +47,15 @@ class Program
         {
             Console.WriteLine($"Title of Video: {video._videoTitle}\nAuthor of Video: {video._authorOfVideo}\nLength of Video:{video._lengthInSeconds} seconds\nNumber of Comments: {video.CountAllComments()}");
             Console.WriteLine("-----------Comments-----------");
-            foreach (var item in video._comments)
+            foreach (var comment in video._comments)
             {
-                Console.WriteLine($"Name: {item._nameOfCommenter}\nComment: {item._commentText}");
+                Console.WriteLine($"Name: {comment._nameOfCommenter}\nComment: {comment._commentText}");
                 Console.WriteLine();
 
             }
         }
 
 
-
-
-       // video1.DisplayVideoDetails();
-        // Console.WriteLine();
-        // video2.DisplayVideoDetails();
 
     }
 }
