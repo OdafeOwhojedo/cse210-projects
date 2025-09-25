@@ -10,10 +10,4 @@ public class Comment
         _commentText = commentText;
     }
 
-    public string DisplayCommentDetails()
-    {
-        string displayComment = $" {_nameOfCommenter}: {_commentText}";
-        return displayComment;
-    }
-
 }

@@ -6,7 +6,7 @@ public class Video
     public string _videoTitle;
     public string _authorOfVideo;
     public int _lengthInSeconds;
-    public Comment _userComment;
+   
     public List<Comment> _comments;
 
     public Video(string videoTitle, string authorOfVideo, int lengthInSeconds )
