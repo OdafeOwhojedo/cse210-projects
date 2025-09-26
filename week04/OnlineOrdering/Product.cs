@@ -1,6 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
+
 //Represents a product available for purchase
 public class Product
 {

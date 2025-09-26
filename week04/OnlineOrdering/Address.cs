@@ -1,6 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
+
 //Represents a physical address
 public class Address
 {
@@ -54,12 +53,9 @@ public class Address
         }
     }
 
-    public override string ToString()
-    {
-        return $"{_street}, {_city}, {_state}  {_country}";
-    }
+   
 
-    public string DisplayAddress()
+    public DisplayAddress()
     {
         return $"{_street}, {_city}, {_state}  {_country}";
     }
