@@ -4,19 +4,25 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Sandbox Project.");
-        BankAccount myAccount = new BankAccount(1000m);
+        //Console.WriteLine("Hello World! This is the Sandbox Project.");
+        // Create an instance of the base class
+        Animal genericAnimal = new Animal("Generic Animal");
+        genericAnimal.Eat();
+        genericAnimal.MakeSound();
+        Console.WriteLine();
 
-        // Accessing balance through the public Balance property
-        Console.WriteLine($"Current balance: {myAccount.Balance:C}");
+        // Create an instance of the derived class Dog
+        Dog myDog = new Dog("Buddy", "Golden Retriever");
+        myDog.Eat();       // Inherited from Animal
+        myDog.Bark();      // Specific to Dog
+        myDog.MakeSound(); // Overridden in Dog
+        Console.WriteLine();
 
-        myAccount.Deposit(200m);
-        myAccount.Withdraw(50m);
-
-        // Attempting to directly modify the private _balance field would result in a compile-time error
-        // myAccount._balance = 5000m; // This line would not compile
-
-        Console.WriteLine($"Final balance: {myAccount.Balance:C}");
+        // Create an instance of the derived class Cat
+        Cat myCat = new Cat("Whiskers");
+        myCat.Eat();       // Inherited from Animal
+        myCat.Meow();      // Specific to Cat
+        myCat.MakeSound(); // Overridden in Cat
 
 
     }
