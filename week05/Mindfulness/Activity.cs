@@ -54,7 +54,7 @@ public class Activity
     {
         Console.WriteLine();
         Console.WriteLine("Congratulations and well done!");
-        ShowLastCountDown(10);
+        ShowLastCountDown(6);
         Console.WriteLine();
         Console.WriteLine($"You just completed the {_name} for {_duration} seconds");
         Console.WriteLine("Take a moment to reflect on what you experienced.");
