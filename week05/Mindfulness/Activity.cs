@@ -51,7 +51,7 @@ public class Activity
 {
     private string _name;
     private string _description;
-    private string _duration;
+    private int _duration;
 
     public string Name
     {
@@ -65,11 +65,18 @@ public class Activity
         set { _description = value; }
     }
 
-    public Activity(string name, string description)
+    public int Duration
+    {
+        get { return _duration; }
+        set { _duration = value; }
+    }
+
+    public Activity(string name, string description, int duration)
     {
         _name = name;
         _description = description;
-        _duration = 60; //default value
+        _duration = duration; 
+
     }
 
     public void DisplayStartMessage()
