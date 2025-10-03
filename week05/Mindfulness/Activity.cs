@@ -85,6 +85,7 @@ public class Activity
             Console.Write($"\r Starting in {i}.....");
             Thread.Sleep(1000);
         }
+        Console.WriteLine();
         Console.WriteLine("\r Go!");
     }
 
