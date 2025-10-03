@@ -39,7 +39,7 @@ class Program
                 break;
             }
         }
-        Console.WriteLine("Goodbye! stay focus, stay positive and remain mindful");
+        Console.WriteLine("Goodbye! stay focus, stay positive and remain mindful.");
         
 
     }

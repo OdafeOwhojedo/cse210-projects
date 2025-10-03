@@ -53,8 +53,13 @@ public class Activity
     public void DisplayEndMessage()
     {
         Console.WriteLine();
-        Console.WriteLine("Well done! You have completed the activity");
+        Console.WriteLine("Congratulations and well done!");
+        ShowLastCountDown(10);
+        Console.WriteLine();
+        Console.WriteLine($"You just completed the {_name} for {_duration} seconds");
         Console.WriteLine("Take a moment to reflect on what you experienced.");
+        Thread.Sleep(6000);
+        ShowSpinner(2);
         Console.WriteLine("Please press ENTER to return to the menu");
         Console.ReadLine();
     }
@@ -81,5 +86,15 @@ public class Activity
             Thread.Sleep(1000);
         }
         Console.WriteLine("\r Go!");
+    }
+
+    public void ShowLastCountDown(int seconds)
+    {
+        for (int i = seconds; i >= 1; i--)
+        {
+            Console.Write($"\r {i}.....");
+            Thread.Sleep(1000);
+        }
+        
     }
 }
