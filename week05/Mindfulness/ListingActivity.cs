@@ -1,4 +1,4 @@
-// 
+
 using System;
 using System.Threading;
 using System.Collections.Generic;
@@ -8,10 +8,10 @@ public class ListingActivity : Activity
     private int _count;
     private List<string> _prompts;
     private Random _rand;
-    public ListingActivity() : base("Listing Activity", "This activity helps you list positive things in your life.", 60)
+    public ListingActivity(string name, string description, int duration) : base("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area", 60)
     {
         _count = 0;
-        _prompts = new List<string>{"List people you appreciate.", "List things you are grateful for today.", "List moments when you helped someone recently.", "List things that made you smile this week."};
+        _prompts = new List<string> {"Who are people that you appreciate?", "What are personal strengths of yours?", "Who are people that you have helped this week?", "When have you felt the Holy Ghost this month?", "Who are some of your personal heroes?"};
         _rand = new Random();
     }
 
@@ -32,6 +32,7 @@ public class ListingActivity : Activity
 
     public string GetRandomPrompt()
     {
+        
             return _prompts[_rand.Next(_prompts.Count)];
     }
 

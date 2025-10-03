@@ -3,55 +3,11 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-// public class BaseActivity
-// {
-//     protected int _duration;
-//     protected string _name;
-//     protected string _description;
-
-//     public BaseActivity(string name, string description, int duration)
-//     {
-//         _name = name;
-//         _description = description;
-//         _duration = duration;
-//     }
-
-//     public void StartActivity()
-//     {
-//         Console.WriteLine($"Prepare to begin {_name} activity: {_description}");
-//         Thread.Sleep(3000);
-//         for (int i = 1; i <= _duration; i++)
-//         {
-//             ShowPrompt(i);
-//         }
-//         EndActivity();
-//     }
-
-//     protected abstract void ShowPrompt(int index);
-
-//     private void EndActivity()
-//     {
-//         Console.WriteLine("You've done a good job!");
-//         Console.WriteLine($"You have completed the {_name} activity in {_duration} seconds.");
-//         Thread.Sleep(3000);
-//     }
-
-//     protected void ShowAnimation()
-//     {
-//         Console.Write("Loading");
-//         for (int i = 0; i < 3; i++)
-//         {
-//             Thread.Sleep(1000);
-//             Console.Write(".");
-//         }
-//         Console.WriteLine();
-//     }
-// }
 public class Activity 
 {
     private string _name;
     private string _description;
-    private int _duration;
+    protected int _duration;
 
     public string Name
     {
@@ -75,19 +31,19 @@ public class Activity
     {
         _name = name;
         _description = description;
-        _duration = duration; 
+        _duration = duration = 60; 
 
     }
 
     public void DisplayStartMessage()
     {
         Console.Clear();
-        Console.WriteLine($"--------------- {_name}-------------");
+        Console.WriteLine($"--------------- {_name}---------------");
         Console.WriteLine(_description);
         Console.WriteLine($"Enter duration in seconds (default {_duration}):    ");
-        if (int.TryParse(Console.ReadLine(), out int d))
+        if (int.TryParse(Console.ReadLine(), out int dueTime))
         {
-            _duration = d;
+            _duration = dueTime;
 
         }
         Console.WriteLine("\nGet ready.....");

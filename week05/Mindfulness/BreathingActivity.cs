@@ -6,24 +6,15 @@ using System.Diagnostics;
 
 public class BreathingActivity : Activity
 {
-    // public BreathingActivity(int duration) : base("Breathing", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.", duration) { }
 
-    // protected override void ShowPrompt(int index)
-    // {
-    //     if (index % 2 == 1)
-    //         Console.WriteLine("Breathe in...");
-    //     else
-    //         Console.WriteLine("Breathe out...");
-    //     ShowAnimation();
-    //     Thread.Sleep(1000);
-    // }
-    public BreathingActivity() : base("Breathing Activity", "This activity will help you relax by guiding you through slow breathing exercise", 60){}
+    public BreathingActivity(string name, string description, int duration ) : base("Breathing Activity", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing", 60){}
+    //public BreathingActivity(string name, string description, int duration) : base(name, description, duration)
     
     public void Run()
     {
         DisplayStartMessage();
         var breathingTimer = Stopwatch.StartNew();
-        while (breathingTimer.Elapsed.TotalSeconds < _duration)
+        while (breathingTimer.Elapsed.TotalSeconds <_duration)
         {
             Breathe("Breathe in.....", 4);
             Breathe("Hold your breath", 3);
