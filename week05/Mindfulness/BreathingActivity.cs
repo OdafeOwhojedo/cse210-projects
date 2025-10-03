@@ -1,3 +1,9 @@
+using System;
+using System.Threading;
+using System.Collections.Generic;
+using System.Diagnostics;
+
+
 public class BreathingActivity : Activity
 {
     // public BreathingActivity(int duration) : base("Breathing", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.", duration) { }
@@ -11,10 +17,8 @@ public class BreathingActivity : Activity
     //     ShowAnimation();
     //     Thread.Sleep(1000);
     // }
-    public BreathingActivity() : base("Breathing Activity", "This activity will help you relax by guiding you through slow breathing exercise")
-    {
-
-    }
+    public BreathingActivity() : base("Breathing Activity", "This activity will help you relax by guiding you through slow breathing exercise", 60){}
+    
     public void Run()
     {
         DisplayStartMessage();

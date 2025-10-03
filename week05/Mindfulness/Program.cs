@@ -26,7 +26,7 @@ class Program
                 ((ListingActivity)activities[1]).Run();
                 break;
                 case "3":
-                ((ReflectingActivity)activities[2]).Run;
+                ((ReflectingActivity)activities[2]).Run();
                 break;
                 case "4":
                 running = false;

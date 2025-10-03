@@ -1,10 +1,15 @@
 // 
+using System;
+using System.Threading;
+using System.Collections.Generic;
+using System.Diagnostics;
+
 public class ReflectingActivity : Activity
 {
     private List<string> _prompts;
     private List<string> _questions;
     private Random _rand;
-    public ReflectingActivity() : base("Reflecting Activity", "This activity helps you reflect on meaningful experiences.")
+    public ReflectingActivity() : base("Reflecting Activity", "This activity helps you reflect on meaningful experiences.", 60)
     {
         _prompts = new List<string>{"Think of a time when you helped someone in need.", "Think of a time when you overcame a challenge.", "Think of a time when you felt inspired.", "Think of a time when you learned something new about yourself."};
         _questions = new List<string>{"Why was this experience meaningful to you?", "What did you learn about yourself from it?", "How can you apply this lesson to your daily life?", "What did you feel during this experience?"};
